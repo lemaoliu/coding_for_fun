@@ -47,13 +47,14 @@ def solve(a, tot):
         if opt == x.div:
           if w.val == 0 or u.val % w.val != 0:
             continue
-        find_res, node = solve(res+[opt(u,w)])
+        find_res, node = solve(res+[opt(u,w)], tot)
         if find_res:
           break
     if find_res:
       break
   return find_res, node
- 
+
+tot = 24
 a = [1,2,2,6]
 a = [1,3,5,7]
 a = [4,5,8,7]
@@ -61,7 +62,7 @@ a = [6,1,7,8]
 a = [13, 3, 2, 10, 1]
 a = [4,6,7,9]
 nodes = [Node(x) for x in a]
-ans, tree = solve(nodes, 24)
+ans, tree = solve(nodes, tot)
 if ans:
   print tree, '= %d'%tot
 else:
